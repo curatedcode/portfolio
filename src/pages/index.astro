@@ -2,6 +2,7 @@
 import ExternalLink from "../components/ExternalLink.astro";
 import { Icon } from "astro-icon";
 import ProjectCard from "../components/ProjectCard.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <!DOCTYPE html>
@@ -22,46 +23,51 @@ import ProjectCard from "../components/ProjectCard.astro";
 		<title>Zackary Fotheringham</title>
 	</head>
 	<body
-		class="bg-site-blue text-site-blue-lighter font-inter px-5 py-10 grid gap-20"
+		class="bg-site-blue text-site-blue-lighter font-inter px-5 py-10 md:pt-0 grid gap-20 md:flex md:px-10"
 	>
-		<section class="grid gap-4">
-			<h1 class="text-4xl font-semibold text-site-blue-lightest">
-				Zackary Fotheringham
-			</h1>
-			<h2>Software Engineer</h2>
-			<p>
-				I develop web-based products and experiences that prioritize
-				accessibility and inclusivity, ensuring everyone can engage and thrive
-				in our online world.
-			</p>
-			<ul class="flex gap-3" aria-label="Social and contact links">
-				<li>
-					<ExternalLink
-						href="https://github.com/curatedcode"
-						className="hover:text-site-blue-lightest transition-colors"
-					>
-						<Icon name="ri:github-fill" class="w-8" />
-					</ExternalLink>
-				</li>
-				<li>
-					<ExternalLink
-						href="https://www.linkedin.com/in/zackary-fotheringham/"
-						className="hover:text-site-blue-lightest transition-colors"
-					>
-						<Icon name="mdi:linkedin" class="w-8" />
-					</ExternalLink>
-				</li>
-				<li>
-					<ExternalLink
-						href="mailto:zackfoth@gmail.com"
-						className="hover:text-site-blue-lightest transition-colors"
-					>
-						<Icon name="ic:baseline-mail" class="w-8" />
-					</ExternalLink>
-				</li>
-			</ul>
+		<section
+			class="md:h-screen-minus-top md:sticky md:top-0 md:basis-1/2 md:pt-14 grid md:content-between"
+		>
+			<div class="grid gap-4 md:auto-rows-min">
+				<h1 class="text-4xl font-semibold text-site-blue-lightest">
+					Zackary Fotheringham
+				</h1>
+				<h2>Software Engineer</h2>
+				<p>
+					I develop web-based products and experiences that prioritize
+					accessibility and inclusivity, ensuring everyone can engage and thrive
+					in our online world.
+				</p>
+				<ul class="flex gap-3" aria-label="Social and contact links">
+					<li>
+						<ExternalLink
+							href="https://github.com/curatedcode"
+							className="hover:text-site-blue-lightest transition-colors"
+						>
+							<Icon name="ri:github-fill" class="w-8" />
+						</ExternalLink>
+					</li>
+					<li>
+						<ExternalLink
+							href="https://www.linkedin.com/in/zackary-fotheringham/"
+							className="hover:text-site-blue-lightest transition-colors"
+						>
+							<Icon name="mdi:linkedin" class="w-8" />
+						</ExternalLink>
+					</li>
+					<li>
+						<ExternalLink
+							href="mailto:zackfoth@gmail.com"
+							className="hover:text-site-blue-lightest transition-colors"
+						>
+							<Icon name="ic:baseline-mail" class="w-8" />
+						</ExternalLink>
+					</li>
+				</ul>
+			</div>
+			<Footer className="hidden md:block" />
 		</section>
-		<main class="grid gap-20">
+		<main class="grid gap-20 md:pt-14">
 			<section class="grid gap-2">
 				<h1 class="text-site-blue-lightest mb-5 font-semibold">ABOUT</h1>
 				<p>
@@ -126,30 +132,6 @@ import ProjectCard from "../components/ProjectCard.astro";
 				/>
 			</section>
 		</main>
-		<footer class="mt-8">
-			<p>
-				Made with &#x2764. Coded in <ExternalLink
-					href="https://code.visualstudio.com/"
-					className="font-semibold hover:text-site-blue-lightest transition-colors"
-				>
-					VSCode
-				</ExternalLink>, built with <ExternalLink
-					href="https://astro.build/"
-					className="font-semibold hover:text-site-blue-lightest transition-colors"
-				>
-					Astro
-				</ExternalLink> and <ExternalLink
-					href="https://tailwindcss.com/"
-					className="font-semibold hover:text-site-blue-lightest transition-colors"
-				>
-					Tailwind CSS
-				</ExternalLink>. Deployed on <ExternalLink
-					href="https://aws.amazon.com/"
-					className="font-semibold hover:text-site-blue-lightest transition-colors"
-				>
-					AWS
-				</ExternalLink>. Thanks for visiting!
-			</p>
-		</footer>
+		<Footer className="md:hidden" />
 	</body>
 </html>

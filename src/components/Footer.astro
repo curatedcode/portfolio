@@ -1,0 +1,35 @@
+---
+import ExternalLink from "../components/ExternalLink.astro";
+
+export interface Props {
+  className?: string;
+}
+
+const { className } = Astro.props;
+---
+
+<footer class={`mt-8 ${className}`}>
+  <p>
+    Made with &#x2764. Coded in <ExternalLink
+      href="https://code.visualstudio.com/"
+      className="font-semibold hover:text-site-blue-lightest transition-colors"
+    >
+      VSCode,
+    </ExternalLink> built with <ExternalLink
+      href="https://astro.build/"
+      className="font-semibold hover:text-site-blue-lightest transition-colors"
+    >
+      Astro
+    </ExternalLink> and <ExternalLink
+      href="https://tailwindcss.com/"
+      className="font-semibold hover:text-site-blue-lightest transition-colors"
+    >
+      Tailwind CSS.
+    </ExternalLink> Deployed on <ExternalLink
+      href="https://aws.amazon.com/"
+      className="font-semibold hover:text-site-blue-lightest transition-colors"
+    >
+      AWS.
+    </ExternalLink> Thanks for visiting!
+  </p>
+</footer>

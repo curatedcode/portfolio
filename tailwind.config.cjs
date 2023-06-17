@@ -11,7 +11,7 @@ module.exports = {
         "site-blue-lightest": "#e2e8f0",
       },
       height: {
-        "screen-minus-nav": "calc(100vh - 10rem)",
+        "screen-minus-top": "calc(100vh - 3.5rem)",
       },
       fontFamily: {
         inter: ["Inter", ...defaultTheme.fontFamily.sans],
