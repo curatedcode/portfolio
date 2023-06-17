@@ -36,19 +36,26 @@ import ProjectCard from "../components/ProjectCard.astro";
 			</p>
 			<ul class="flex gap-3" aria-label="Social and contact links">
 				<li>
-					<ExternalLink href="https://github.com/curatedcode">
+					<ExternalLink
+						href="https://github.com/curatedcode"
+						className="hover:text-site-blue-lightest transition-colors"
+					>
 						<Icon name="ri:github-fill" class="w-8" />
 					</ExternalLink>
 				</li>
 				<li>
 					<ExternalLink
 						href="https://www.linkedin.com/in/zackary-fotheringham/"
+						className="hover:text-site-blue-lightest transition-colors"
 					>
 						<Icon name="mdi:linkedin" class="w-8" />
 					</ExternalLink>
 				</li>
 				<li>
-					<ExternalLink href="mailto:zackfoth@gmail.com">
+					<ExternalLink
+						href="mailto:zackfoth@gmail.com"
+						className="hover:text-site-blue-lightest transition-colors"
+					>
 						<Icon name="ic:baseline-mail" class="w-8" />
 					</ExternalLink>
 				</li>

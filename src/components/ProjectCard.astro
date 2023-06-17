@@ -21,7 +21,7 @@ const { title, imageUrl, description, techUsed, githubUrl, liveUrl, imageAlt } =
     {
       techUsed.map((tech) => (
         <ExternalLink
-          className="text-emerald-400 text-sm py-1 bg-emerald-700 bg-opacity-20 rounded-full px-4"
+          className="text-emerald-400 text-sm py-1 bg-emerald-700 bg-opacity-20 rounded-full px-4 hover:bg-opacity-25 transition-all"
           href={tech.url}
         >
           {tech.name}
