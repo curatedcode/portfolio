@@ -1,5 +1,6 @@
 ---
 import ExternalLink from "./ExternalLink.astro";
+import { Icon } from "astro-icon";
 export interface Props {
   title: string;
   imageUrl: string;
@@ -29,9 +30,27 @@ const { title, imageUrl, description, techUsed, githubUrl, liveUrl, imageAlt } =
       ))
     }
   </div>
-  <img
-    alt={imageAlt}
-    src={imageUrl}
-    class="w-48 md:w-full max-w-md rounded-sm"
-  />
+  <div class="grid auto-cols-min grid-cols-2 gap-4">
+    <img alt={imageAlt} src={imageUrl} class="w-full max-w-md rounded-sm" />
+    <div class="grid gap-2 auto-rows-min w-fit mt-2">
+      <ExternalLink
+        href={githubUrl}
+        className="flex gap-1 items-center [&>*]:hover:text-site-blue-lightest [&>*]:transition-colors"
+      >
+        <Icon name="ri:github-fill" class="w-5" />
+        <span>View source code</span>
+      </ExternalLink>
+      {
+        liveUrl && (
+          <ExternalLink
+            href={liveUrl}
+            className="flex gap-1 items-center [&>*]:hover:text-site-blue-lightest [&>*]:transition-colors"
+          >
+            <Icon name="mdi:web" class="w-5" />
+            <span>View live site</span>
+          </ExternalLink>
+        )
+      }
+    </div>
+  </div>
 </div>
