@@ -7,6 +7,8 @@ module.exports = {
     extend: {
       colors: {
         "site-blue": "#0f172a",
+        "site-blue-lighter": "#b3bdcc",
+        "site-blue-lightest": "#e2e8f0",
       },
       height: {
         "screen-minus-nav": "calc(100vh - 10rem)",

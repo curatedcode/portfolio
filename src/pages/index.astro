@@ -17,9 +17,9 @@ import ProjectCard from "../components/ProjectCard.astro";
 		<meta name="generator" content={Astro.generator} />
 		<title>Zackary Fotheringham</title>
 	</head>
-	<body class="bg-site-blue text-neutral-400 font-inter text-lg px-5 py-10">
+	<body class="bg-site-blue text-site-blue-lighter font-inter px-5 py-10">
 		<section class="grid gap-4">
-			<h1 class="text-4xl font-semibold text-neutral-300">
+			<h1 class="text-4xl font-semibold text-site-blue-lightest">
 				Zackary Fotheringham
 			</h1>
 			<h2>Software Engineer</h2>
@@ -48,9 +48,9 @@ import ProjectCard from "../components/ProjectCard.astro";
 				</li>
 			</ul>
 		</section>
-		<main class="mt-16">
+		<main class="mt-16 grid gap-12">
 			<section class="grid gap-2">
-				<h1 class="text-neutral-300 mb-2">About</h1>
+				<h1 class="text-site-blue-lightest mb-2 font-semibold">ABOUT</h1>
 				<p>
 					My programming journey began by creating games on Roblox, which
 					sparked my curiosity into this world. As I kept going down this rabbit
@@ -68,6 +68,48 @@ import ProjectCard from "../components/ProjectCard.astro";
 					playing with two my dogs, or trying to improve my terrible chess
 					skills.
 				</p>
+			</section>
+			<section class="grid gap-12">
+				<h1 class="text-site-blue-lightest -mb-3 font-semibold">PROJECTS</h1>
+				<ProjectCard
+					title="Toshi"
+					description="Toshi is an online marketplace where you can select from a wide variety of products."
+					techUsed={[
+						{ name: "React", url: "https://react.dev/" },
+						{ name: "NextJS", url: "https://nextjs.org/" },
+						{ name: "Tailwind", url: "https://tailwindcss.com/" },
+						{ name: "MySQL", url: "https://www.mysql.com/" },
+					]}
+					imageUrl="toshi.png"
+					imageAlt="Screenshot of Toshi app homepage"
+					liveUrl="https://toshi-ecom.netlify.app/"
+					githubUrl="https://github.com/curatedcode/toshi"
+				/>
+				<ProjectCard
+					title="Web scraper"
+					description="This is a web scraper that gets product details and reviews from Walmart.com products. Originally created for gathering data for my ecommerce project."
+					techUsed={[
+						{ name: "Typescript", url: "https://www.typescriptlang.org/" },
+						{ name: "Express", url: "https://expressjs.com/" },
+						{ name: "Puppetter", url: "https://pptr.dev/" },
+					]}
+					imageUrl="web-scraper.png"
+					imageAlt="Web crawler sticker"
+					githubUrl="https://github.com/curatedcode/web-scraper"
+				/>
+				<ProjectCard
+					title="Close Circle"
+					description="Close circle is a social media site to post and interacte with your close friends and family."
+					techUsed={[
+						{ name: "NextJS", url: "https://nextjs.org/" },
+						{ name: "React", url: "https://react.dev/" },
+						{ name: "MySQL", url: "https://www.mysql.com/" },
+						{ name: "Tailwind", url: "https://tailwindcss.com/" },
+					]}
+					imageUrl="close-circle.png"
+					imageAlt="Close Circle app homepage"
+					githubUrl="https://github.com/curatedcode/close-circle"
+				/>
 			</section>
 		</main>
 	</body>

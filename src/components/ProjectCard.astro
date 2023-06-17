@@ -1,0 +1,37 @@
+---
+import ExternalLink from "./ExternalLink.astro";
+export interface Props {
+  title: string;
+  imageUrl: string;
+  description: string;
+  techUsed: { name: string; url: string }[];
+  githubUrl: string;
+  liveUrl?: string;
+  imageAlt: string;
+}
+
+const { title, imageUrl, description, techUsed, githubUrl, liveUrl, imageAlt } =
+  Astro.props;
+---
+
+<div class="grid gap-2">
+  <h2 class="text-site-blue-lightest">{title}</h2>
+  <p>{description}</p>
+  <div class="flex gap-2 my-1">
+    {
+      techUsed.map((tech) => (
+        <ExternalLink
+          className="text-emerald-400 text-sm py-1 bg-emerald-700 bg-opacity-20 rounded-full px-4"
+          href={tech.url}
+        >
+          {tech.name}
+        </ExternalLink>
+      ))
+    }
+  </div>
+  <img
+    alt={imageAlt}
+    src={imageUrl}
+    class="w-48 md:w-full max-w-md rounded-sm"
+  />
+</div>
