@@ -2,11 +2,12 @@
 export interface Props {
   className?: string;
   href: string;
+  title: string;
 }
 
-const { href, className } = Astro.props;
+const { ...props } = Astro.props;
 ---
 
-<a href={href} class={className} rel="nofollow noreferrer" target="_blank">
+<a rel="nofollow noreferrer" target="_blank" {...props}>
   <slot />
 </a>

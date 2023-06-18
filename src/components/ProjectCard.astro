@@ -24,6 +24,7 @@ const { title, imageUrl, description, techUsed, githubUrl, liveUrl, imageAlt } =
         <ExternalLink
           className="text-emerald-400 text-sm py-1 bg-emerald-700 bg-opacity-20 rounded-full px-4 hover:bg-opacity-25 transition-all"
           href={tech.url}
+          title={tech.name}
         >
           {tech.name}
         </ExternalLink>
@@ -42,6 +43,7 @@ const { title, imageUrl, description, techUsed, githubUrl, liveUrl, imageAlt } =
       <ExternalLink
         href={githubUrl}
         className="flex gap-1 items-center [&>*]:hover:text-site-blue-lightest [&>*]:transition-colors"
+        title="Source code on github"
       >
         <Icon name="ri:github-fill" class="w-5" />
         <span>View source code</span>
@@ -51,6 +53,7 @@ const { title, imageUrl, description, techUsed, githubUrl, liveUrl, imageAlt } =
           <ExternalLink
             href={liveUrl}
             className="flex gap-1 items-center [&>*]:hover:text-site-blue-lightest [&>*]:transition-colors"
+            title="View live site"
           >
             <Icon name="mdi:web" class="w-5" />
             <span>View live site</span>
