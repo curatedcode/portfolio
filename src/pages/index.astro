@@ -7,179 +7,179 @@ import Footer from "../components/Footer.astro";
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta
-			name="description"
-			content="Portfolio site for Zackary Fotheringham. Software Engineer"
-		/>
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-		<link
-			rel="apple-touch-icon-precomposed"
-			sizes="180x180"
-			href="/apple-touch-icon-precomposed.png"
-		/>
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-		<link rel="manifest" href="/site.webmanifest" />
-		<meta name="theme-color" content="#0a192f" />
-		<title>Zackary Fotheringham</title>
-	</head>
-	<body
-		class="bg-site-blue text-site-blue-lighter font-inter px-5 py-10 md:pt-0 grid gap-20 md:grid-cols-3 md:px-10 relative left-1/2 -translate-x-1/2 max-w-7xl"
-	>
-		<section
-			class="md:h-screen-minus-top md:sticky md:top-0 md:pt-14 grid md:content-between"
-		>
-			<div class="grid gap-4 md:auto-rows-min">
-				<h1 class="text-4xl font-semibold text-site-blue-lightest">
-					Zackary Fotheringham
-				</h1>
-				<h2 class="font-semibold text-site-blue-lightest">Software Engineer</h2>
-				<p>
-					I develop web-based products and experiences that prioritize
-					accessibility and inclusivity, ensuring everyone can engage and thrive
-					in our online world.
-				</p>
-				<ul class="flex gap-3" aria-label="Social and contact links">
-					<li>
-						<ExternalLink
-							href="https://github.com/curatedcode"
-							className="hover:text-site-blue-lightest transition-colors"
-							title="Github"
-						>
-							<Icon name="ri:github-fill" class="w-8" />
-						</ExternalLink>
-					</li>
-					<li>
-						<ExternalLink
-							href="https://www.linkedin.com/in/zackary-fotheringham/"
-							className="hover:text-site-blue-lightest transition-colors"
-							title="LinkedIn"
-						>
-							<Icon name="mdi:linkedin" class="w-8" />
-						</ExternalLink>
-					</li>
-					<li>
-						<ExternalLink
-							href="mailto:me@zackaryf.com"
-							className="hover:text-site-blue-lightest transition-colors"
-							title="Email me@zackaryf.com"
-						>
-							<Icon name="ic:baseline-mail" class="w-8" />
-						</ExternalLink>
-					</li>
-				</ul>
-			</div>
-			<Footer className="hidden md:block" />
-		</section>
-		<main class="grid gap-20 md:pt-14 md:col-span-2">
-			<section class="grid gap-2">
-				<h1 class="text-site-blue-lightest mb-6 font-semibold">ABOUT</h1>
-				<p>
-					I began my programming journey by creating scripts for games using <ExternalLink
-						href="http://www.lua.org/"
-						className="font-semibold hover:text-site-blue-lightest transition-colors"
-						title="Lua site"
-					>
-						Lua
-					</ExternalLink>. It felt like uncovering a whole new world of
-					possibilities. As my interests grew, I found myself naturally
-					gravitating towards web development, where I have the opportunity to
-					unleash my creativity and build incredible experiences for people
-					across the world.
-				</p>
-				<p>
-					Right now, my main goal is to always learn more and have fun playing
-					around with all the cool new tech that comes out frequently. I love
-					discovering new things, and the field of web development is the gift
-					that keeps on giving.
-				</p>
-				<p>
-					When I'm not at the computer, I enjoy hanging out with my family,
-					playing with two my dogs, or trying to improve my terrible chess
-					skills.
-				</p>
-			</section>
-			<section class="grid gap-12 md:gap-16">
-				<h1 class="text-site-blue-lightest -mb-3 md:-mb-6 font-semibold">
-					PROJECTS
-				</h1>
-				<ProjectCard
-					title="Toshi"
-					description="Toshi is an online marketplace that offers a diverse selection of products to suit various preferences, interests, and needs. It provides user-friendly features such as quick ordering, the option to save items for later, and customer reviews, ensuring a pleasant shopping experience."
-					techUsed={[
-						{ name: "React", url: "https://react.dev/" },
-						{ name: "NextJS", url: "https://nextjs.org/" },
-						{ name: "Tailwind", url: "https://tailwindcss.com/" },
-						{ name: "MySQL", url: "https://www.mysql.com/" },
-					]}
-					imageUrl="toshi.webp"
-					imageAlt="Screenshot of Toshi app homepage"
-					liveUrl="https://toshi-ecom.netlify.app/"
-					githubUrl="https://github.com/curatedcode/toshi"
-				/>
-				<ProjectCard
-					title="Web scraper"
-					description="This project is a powerful web scraping tool designed to gather product details and user reviews from Walmart.com. It effectively utilizes Puppeteer to bypass bot detection measures. It was originally created for my ecommerce project, Toshi."
-					techUsed={[
-						{ name: "Typescript", url: "https://www.typescriptlang.org/" },
-						{ name: "Express", url: "https://expressjs.com/" },
-						{ name: "Puppetter", url: "https://pptr.dev/" },
-					]}
-					imageUrl="web-scraper.webp"
-					imageAlt="Web crawler sticker"
-					githubUrl="https://github.com/curatedcode/web-scraper"
-				/>
-				<ProjectCard
-					title="Close Circle"
-					description="Close Circle is a social media platform that allows users to effortlessly connect, share updates, and engage with their close friends and family. Its liking, sharing, and following features enhance the experience, making it easy to stay connected and interact with loved ones."
-					techUsed={[
-						{ name: "NextJS", url: "https://nextjs.org/" },
-						{ name: "React", url: "https://react.dev/" },
-						{ name: "MySQL", url: "https://www.mysql.com/" },
-						{ name: "Tailwind", url: "https://tailwindcss.com/" },
-					]}
-					imageUrl="close-circle.webp"
-					imageAlt="Close Circle app homepage"
-					liveUrl="https://close-circle.netlify.app/"
-					githubUrl="https://github.com/curatedcode/close-circle"
-				/>
-			</section>
-		</main>
-		<Footer className="md:hidden" />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Portfolio site for Zackary Fotheringham. Software Engineer"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="180x180"
+      href="/apple-touch-icon-precomposed.png"
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0a192f" />
+    <title>Zackary Fotheringham</title>
+  </head>
+  <body
+    class="bg-site-blue text-site-blue-lighter font-inter px-5 py-10 md:pt-0 grid gap-20 md:grid-cols-3 md:px-10 relative left-1/2 -translate-x-1/2 max-w-7xl"
+  >
+    <section
+      class="md:h-screen-minus-top md:sticky md:top-0 md:pt-14 grid md:content-between"
+    >
+      <div class="grid gap-4 md:auto-rows-min">
+        <h1 class="text-4xl font-semibold text-site-blue-lightest">
+          Zackary Fotheringham
+        </h1>
+        <h2 class="font-semibold text-site-blue-lightest">Software Engineer</h2>
+        <p>
+          I develop web-based products and experiences that prioritize
+          accessibility and inclusivity, ensuring everyone can engage and thrive
+          in our online world.
+        </p>
+        <ul class="flex gap-3" aria-label="Social and contact links">
+          <li>
+            <ExternalLink
+              href="https://github.com/curatedcode"
+              className="hover:text-site-blue-lightest transition-colors"
+              title="Github"
+            >
+              <Icon name="ri:github-fill" class="w-8" />
+            </ExternalLink>
+          </li>
+          <li>
+            <ExternalLink
+              href="https://www.linkedin.com/in/zackary-fotheringham/"
+              className="hover:text-site-blue-lightest transition-colors"
+              title="LinkedIn"
+            >
+              <Icon name="mdi:linkedin" class="w-8" />
+            </ExternalLink>
+          </li>
+          <li>
+            <ExternalLink
+              href="mailto:zackaryfotheringham@hotmail.com"
+              className="hover:text-site-blue-lightest transition-colors"
+              title="Email zackaryfotheringham@hotmail.com"
+            >
+              <Icon name="ic:baseline-mail" class="w-8" />
+            </ExternalLink>
+          </li>
+        </ul>
+      </div>
+      <Footer className="hidden md:block" />
+    </section>
+    <main class="grid gap-20 md:pt-14 md:col-span-2">
+      <section class="grid gap-2">
+        <h1 class="text-site-blue-lightest mb-6 font-semibold">ABOUT</h1>
+        <p>
+          I began my programming journey by creating scripts for games using <ExternalLink
+            href="http://www.lua.org/"
+            className="font-semibold hover:text-site-blue-lightest transition-colors"
+            title="Lua site"
+          >
+            Lua
+          </ExternalLink>. It felt like uncovering a whole new world of
+          possibilities. As my interests grew, I found myself naturally
+          gravitating towards web development, where I have the opportunity to
+          unleash my creativity and build incredible experiences for people
+          across the world.
+        </p>
+        <p>
+          Right now, my main goal is to always learn more and have fun playing
+          around with all the cool new tech that comes out frequently. I love
+          discovering new things, and the field of web development is the gift
+          that keeps on giving.
+        </p>
+        <p>
+          When I'm not at the computer, I enjoy hanging out with my family,
+          playing with two my dogs, or trying to improve my terrible chess
+          skills.
+        </p>
+      </section>
+      <section class="grid gap-12 md:gap-16">
+        <h1 class="text-site-blue-lightest -mb-3 md:-mb-6 font-semibold">
+          PROJECTS
+        </h1>
+        <ProjectCard
+          title="Toshi"
+          description="Toshi is an online marketplace that offers a diverse selection of products to suit various preferences, interests, and needs. It provides user-friendly features such as quick ordering, the option to save items for later, and customer reviews, ensuring a pleasant shopping experience."
+          techUsed={[
+            { name: "React", url: "https://react.dev/" },
+            { name: "NextJS", url: "https://nextjs.org/" },
+            { name: "Tailwind", url: "https://tailwindcss.com/" },
+            { name: "MySQL", url: "https://www.mysql.com/" },
+          ]}
+          imageUrl="toshi.webp"
+          imageAlt="Screenshot of Toshi app homepage"
+          liveUrl="https://toshi-ecom.netlify.app/"
+          githubUrl="https://github.com/curatedcode/toshi"
+        />
+        <ProjectCard
+          title="Web scraper"
+          description="This project is a powerful web scraping tool designed to gather product details and user reviews from Walmart.com. It effectively utilizes Puppeteer to bypass bot detection measures. It was originally created for my ecommerce project, Toshi."
+          techUsed={[
+            { name: "Typescript", url: "https://www.typescriptlang.org/" },
+            { name: "Express", url: "https://expressjs.com/" },
+            { name: "Puppetter", url: "https://pptr.dev/" },
+          ]}
+          imageUrl="web-scraper.webp"
+          imageAlt="Web crawler sticker"
+          githubUrl="https://github.com/curatedcode/web-scraper"
+        />
+        <ProjectCard
+          title="Close Circle"
+          description="Close Circle is a social media platform that allows users to effortlessly connect, share updates, and engage with their close friends and family. Its liking, sharing, and following features enhance the experience, making it easy to stay connected and interact with loved ones."
+          techUsed={[
+            { name: "NextJS", url: "https://nextjs.org/" },
+            { name: "React", url: "https://react.dev/" },
+            { name: "MySQL", url: "https://www.mysql.com/" },
+            { name: "Tailwind", url: "https://tailwindcss.com/" },
+          ]}
+          imageUrl="close-circle.webp"
+          imageAlt="Close Circle app homepage"
+          liveUrl="https://close-circle.netlify.app/"
+          githubUrl="https://github.com/curatedcode/close-circle"
+        />
+      </section>
+    </main>
+    <Footer className="md:hidden" />
+  </body>
 </html>
 
 <!-- below adds the area light effect to the cursor -->
 <style is:global>
-	:root {
-		--cursorX: 50vw;
-		--cursorY: 50vh;
-	}
+  :root {
+    --cursorX: 50vw;
+    --cursorY: 50vh;
+  }
 
-	:root::before {
-		content: "";
-		display: block;
-		width: 100%;
-		height: 100%;
-		position: fixed;
-		pointer-events: none;
-		background: radial-gradient(
-			circle 60vmax at var(--cursorX) var(--cursorY),
-			rgba(13, 33, 63, 1) 1%,
-			transparent 70%
-		);
-	}
+  :root::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    pointer-events: none;
+    background: radial-gradient(
+      circle 60vmax at var(--cursorX) var(--cursorY),
+      rgba(13, 33, 63, 1) 1%,
+      transparent 70%
+    );
+  }
 </style>
 
 <script>
-	document.addEventListener("mousemove", (e) => {
-		if (window.innerWidth < 768) return;
-		document.documentElement.style.setProperty("--cursorX", e.clientX + "px");
-		document.documentElement.style.setProperty("--cursorY", e.clientY + "px");
-	});
+  document.addEventListener("mousemove", (e) => {
+    if (window.innerWidth < 768) return;
+    document.documentElement.style.setProperty("--cursorX", e.clientX + "px");
+    document.documentElement.style.setProperty("--cursorY", e.clientY + "px");
+  });
 </script>
