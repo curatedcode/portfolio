@@ -1,65 +1,71 @@
 ---
-import ExternalLink from "./ExternalLink.astro";
-import { Icon } from "astro-icon";
-export interface Props {
-  title: string;
-  imageUrl: string;
-  description: string;
-  techUsed: { name: string; url: string }[];
-  githubUrl: string;
-  liveUrl?: string;
-  imageAlt: string;
+import { buttonVariants } from "./buttonVariants";
+
+interface Props {
+	title: string;
+	date: string;
+	tags?: { name: string; href: string }[];
+	image: string;
+	links: {
+		title: string;
+		href: string;
+	}[];
+	lazyLoad?: boolean;
 }
 
-const { title, imageUrl, description, techUsed, githubUrl, liveUrl, imageAlt } =
-  Astro.props;
+const { title, date, image, tags, links, lazyLoad = true } = Astro.props;
 ---
 
-<div class="grid gap-2">
-  <h2 class="text-site-blue-lightest">{title}</h2>
-  <p>{description}</p>
-  <div class="flex gap-2 my-1">
-    {
-      techUsed.map((tech) => (
-        <ExternalLink
-          className="text-emerald-400 text-sm py-1 bg-emerald-700 bg-opacity-20 rounded-full px-4 hover:bg-opacity-25 transition-all"
-          href={tech.url}
-          title={tech.name}
-        >
-          {tech.name}
-        </ExternalLink>
-      ))
-    }
-  </div>
-  <div class="grid auto-cols-min grid-cols-2 gap-4">
-    <img
-      alt={imageAlt}
-      src={imageUrl}
-      width="379"
-      height="234"
-      class="w-full max-w-md rounded-sm"
-    />
-    <div class="grid gap-2 auto-rows-min w-fit mt-2">
-      <ExternalLink
-        href={githubUrl}
-        className="flex gap-1 items-center [&>*]:hover:text-site-blue-lightest [&>*]:transition-colors"
-        title="Source code on github"
-      >
-        <Icon name="ri:github-fill" class="w-5" />
-        <span>View source code</span>
-      </ExternalLink>
-      {
-        liveUrl && (
-          <ExternalLink
-            href={liveUrl}
-            className="flex gap-1 items-center [&>*]:hover:text-site-blue-lightest [&>*]:transition-colors"
-            title="View live site"
-          >
-            <Icon name="mdi:web" class="w-5" />
-            <span>View live site</span>
-          </ExternalLink>
-        )
-      }
-    </div>
-  </div>
+<div class="grid gap-3">
+	<h2 class="ml-1 text-xl font-semibold">{title}</h2>
+	<div class="ml-1 flex items-center text-sm">
+		<span class="opacity-80">{date}</span>
+		{
+			tags && (
+				<>
+					<span class="mx-1.5">&middot;</span>
+					<div class="flex gap-2">
+						{tags.map((tag) => (
+							<a
+								href={tag.href}
+								rel="nofollow noreferrer"
+								target="_blank"
+								class="text-custom-muted-gold/70 hover:text-custom-muted-gold transition-colors"
+							>
+								{tag.name}
+							</a>
+						))}
+					</div>
+				</>
+			)
+		}
+	</div>
+	<img
+		alt={title}
+		src={image}
+		width="730"
+		height="355"
+		loading={lazyLoad ? "lazy" : "eager"}
+		class="w-full rounded-md shadow-md"
+	/>
+	<div class="px-1">
+		<slot />
+	</div>
+	<div class="flex gap-4 px-1">
+		{
+			links.map((link) => (
+				<a
+					href={link.href}
+					class={buttonVariants({
+						variant: "link",
+						class: "justify-start gap-2 pb-1"
+					})}
+					rel="nofollow noreferrer"
+					target="_blank"
+				>
+					{link.title}
+				</a>
+			))
+		}
+	</div>
 </div>

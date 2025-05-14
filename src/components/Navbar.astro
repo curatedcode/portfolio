@@ -1,0 +1,76 @@
+---
+import { Menu, X } from "@lucide/astro";
+
+export const navLinks = [
+	{ name: "Home", path: "/#" },
+	{ name: "Case Studies", path: "/#case-studies" },
+	{ name: "Projects", path: "/#projects" },
+	{ name: "Blog", path: "/#blog" }
+];
+---
+
+<header>
+	<nav x-data="{ isOpen: false }" class="fixed top-0 right-0 left-0 z-50">
+		<div
+			class="bg-custom-blue-300 mx-auto max-w-[60rem] transform-gpu border-b border-transparent p-4 transition-all duration-300 will-change-auto md:px-2 md:py-5"
+			:class="[isScrolled && 'md:!py-4 !border-custom-blue-200/20 shadow-md', isOpen && '!border-transparent shadow-none']"
+		>
+			<div class="flex items-center justify-between">
+				<a
+					href="/"
+					class="hover:text-custom-blue-100 text-lg font-bold transition-colors"
+					@click="isOpen = false"
+				>
+					Zack F.
+				</a>
+
+				<!-- Desktop Navigation -->
+				<nav class="hidden gap-6 md:flex">
+					{
+						navLinks.map((link) => (
+							<a
+								href={link.path}
+								class="hover:text-custom-blue-100 text-sm transition-colors"
+							>
+								{link.name}
+							</a>
+						))
+					}
+				</nav>
+
+				<!-- Mobile menu button -->
+				<button class="md:hidden" @click="isOpen = !isOpen">
+					<template x-if="isOpen">
+						<X class="size-6" />
+					</template>
+					<template x-if="!isOpen">
+						<Menu class="size-6" />
+					</template>
+				</button>
+			</div>
+		</div>
+
+		<!-- Mobile menu -->
+		<div
+			x-show="isOpen"
+			x-collapse
+			x-cloak
+			class="bg-custom-blue-300 border-custom-blue-200/30 overflow-hidden border-b shadow-md transition-colors duration-300 md:hidden"
+			:class="isScrolled && '!border-custom-blue-200/20'"
+		>
+			<nav class="flex flex-col space-y-8 p-4 pb-10">
+				{
+					navLinks.map((link) => (
+						<a
+							href={link.path}
+							class="hover:text-custom-blue-100 transition-colors"
+							x-on:click="isOpen = false"
+						>
+							{link.name}
+						</a>
+					))
+				}
+			</nav>
+		</div>
+	</nav>
+</header>

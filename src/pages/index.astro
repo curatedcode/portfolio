@@ -1,186 +1,210 @@
 ---
-import ExternalLink from "../components/ExternalLink.astro";
-import { Icon } from "astro-icon";
+import { Mail } from "@lucide/astro";
+import { getCollection } from "astro:content";
+import { buttonVariants } from "../components/buttonVariants";
+import { GithubIcon, XTwitterIcon } from "../components/Icons";
 import ProjectCard from "../components/ProjectCard.astro";
-import Footer from "../components/Footer.astro";
-import "../styles/global.css"
+import Layout from "../layouts/Layout.astro";
+
+const blogPosts = await getCollection("blog");
+const postsData = blogPosts.map((post) => post.data);
+const postsSorted = postsData.sort(
+	(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+);
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Portfolio site for Zackary Fotheringham. Software Engineer"
-    />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image" href="/favicon.ico" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link
-      rel="apple-touch-icon-precomposed"
-      sizes="180x180"
-      href="/apple-touch-icon-precomposed.png"
-    />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#0a192f" />
-    <title>Zackary Fotheringham</title>
-  </head>
-  <body
-    class="bg-site-blue text-site-blue-lighter font-inter px-5 py-10 md:pt-0 grid gap-20 md:grid-cols-3 md:px-10 relative left-1/2 -translate-x-1/2 max-w-7xl"
-  >
-    <section
-      class="md:h-screen-minus-top md:sticky md:top-0 md:pt-14 grid md:content-between"
-    >
-      <div class="grid gap-4 md:auto-rows-min">
-        <h1 class="text-4xl font-semibold text-site-blue-lightest">
-          Zackary Fotheringham
-        </h1>
-        <h2 class="font-semibold text-site-blue-lightest">Software Engineer</h2>
-        <p>
-          I develop web-based products and experiences that prioritize
-          accessibility and inclusivity, ensuring everyone can engage and thrive
-          in our online world.
-        </p>
-        <ul class="flex gap-3" aria-label="Social and contact links">
-          <li>
-            <ExternalLink
-              href="https://github.com/curatedcode"
-              className="hover:text-site-blue-lightest transition-colors"
-              title="Github"
-            >
-              <Icon name="ri:github-fill" class="w-8" />
-            </ExternalLink>
-          </li>
-          <li>
-            <ExternalLink
-              href="https://www.linkedin.com/in/zackary-fotheringham/"
-              className="hover:text-site-blue-lightest transition-colors"
-              title="LinkedIn"
-            >
-              <Icon name="mdi:linkedin" class="w-8" />
-            </ExternalLink>
-          </li>
-          <li>
-            <ExternalLink
-              href="mailto:zackaryfotheringham@hotmail.com"
-              className="hover:text-site-blue-lightest transition-colors"
-              title="Email zackaryfotheringham@hotmail.com"
-            >
-              <Icon name="ic:baseline-mail" class="w-8" />
-            </ExternalLink>
-          </li>
-        </ul>
-      </div>
-      <Footer className="hidden md:block" />
-    </section>
-    <main class="grid gap-20 md:pt-14 md:col-span-2">
-      <section class="grid gap-2">
-        <h1 class="text-site-blue-lightest mb-6 font-semibold">ABOUT</h1>
-        <p>
-          I began my programming journey by creating scripts for games using <ExternalLink
-            href="http://www.lua.org/"
-            className="font-semibold hover:text-site-blue-lightest transition-colors"
-            title="Lua site"
-          >
-            Lua
-          </ExternalLink>. It felt like uncovering a whole new world of
-          possibilities. As my interests grew, I found myself naturally
-          gravitating towards web development, where I have the opportunity to
-          unleash my creativity and build incredible experiences for people
-          across the world.
-        </p>
-        <p>
-          Right now, my main goal is to always learn more and have fun playing
-          around with all the cool new tech that comes out frequently. I love
-          discovering new things, and the field of web development is the gift
-          that keeps on giving.
-        </p>
-        <p>
-          When I'm not at the computer, I enjoy hanging out with my family,
-          playing with two my dogs, or trying to improve my terrible chess
-          skills.
-        </p>
-      </section>
-      <section class="grid gap-12 md:gap-16">
-        <h1 class="text-site-blue-lightest -mb-3 md:-mb-6 font-semibold">
-          PROJECTS
-        </h1>
-        <ProjectCard
-          title="Toshi"
-          description="Toshi is an online marketplace that offers a diverse selection of products to suit various preferences, interests, and needs. It provides user-friendly features such as quick ordering, the option to save items for later, and customer reviews, ensuring a pleasant shopping experience."
-          techUsed={[
-            { name: "React", url: "https://react.dev/" },
-            { name: "NextJS", url: "https://nextjs.org/" },
-            { name: "Tailwind", url: "https://tailwindcss.com/" },
-            { name: "MySQL", url: "https://www.mysql.com/" },
-          ]}
-          imageUrl="toshi.webp"
-          imageAlt="Screenshot of Toshi app homepage"
-          liveUrl="https://toshi-ecom.netlify.app/"
-          githubUrl="https://github.com/curatedcode/toshi"
-        />
-        <ProjectCard
-          title="Web scraper"
-          description="This project is a powerful web scraping tool designed to gather product details and user reviews from Walmart.com. It effectively utilizes Puppeteer to bypass bot detection measures. It was originally created for my ecommerce project, Toshi."
-          techUsed={[
-            { name: "Typescript", url: "https://www.typescriptlang.org/" },
-            { name: "Express", url: "https://expressjs.com/" },
-            { name: "Puppetter", url: "https://pptr.dev/" },
-          ]}
-          imageUrl="web-scraper.webp"
-          imageAlt="Web crawler sticker"
-          githubUrl="https://github.com/curatedcode/web-scraper"
-        />
-        <ProjectCard
-          title="Close Circle"
-          description="Close Circle is a social media platform that allows users to effortlessly connect, share updates, and engage with their close friends and family. Its liking, sharing, and following features enhance the experience, making it easy to stay connected and interact with loved ones."
-          techUsed={[
-            { name: "NextJS", url: "https://nextjs.org/" },
-            { name: "React", url: "https://react.dev/" },
-            { name: "MySQL", url: "https://www.mysql.com/" },
-            { name: "Tailwind", url: "https://tailwindcss.com/" },
-          ]}
-          imageUrl="close-circle.webp"
-          imageAlt="Close Circle app homepage"
-          liveUrl="https://close-circle.netlify.app/"
-          githubUrl="https://github.com/curatedcode/close-circle"
-        />
-      </section>
-    </main>
-    <Footer className="md:hidden" />
-  </body>
-</html>
-
-<!-- below adds the area light effect to the cursor -->
-<style is:global>
-  :root {
-    --cursorX: 50vw;
-    --cursorY: 50vh;
-  }
-
-  :root::before {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    pointer-events: none;
-    background: radial-gradient(
-      circle 60vmax at var(--cursorX) var(--cursorY),
-      rgba(13, 33, 63, 1) 1%,
-      transparent 70%
-    );
-  }
-</style>
-
-<script>
-  document.addEventListener("mousemove", (e) => {
-    if (window.innerWidth < 768) return;
-    document.documentElement.style.setProperty("--cursorX", e.clientX + "px");
-    document.documentElement.style.setProperty("--cursorY", e.clientY + "px");
-  });
-</script>
+<Layout title="Zackary Fotheringham">
+	<div class="relative grid gap-y-16 md:grid-cols-4 md:gap-x-16">
+		<section
+			class="-mb-3 grid h-fit snap-none pt-10 transition-all duration-300 md:sticky md:top-8 md:content-between md:pt-15"
+		>
+			<div class="grid gap-4 md:auto-rows-min">
+				<h1 class="text-custom-blue-100 hidden text-2xl font-semibold md:block">
+					I'm Zack. I bring ideas to life.
+				</h1>
+				<h1
+					class="text-custom-blue-100 flex flex-col text-center text-2xl font-semibold md:hidden"
+				>
+					<div>I'm Zack.</div>
+					<div>I bring ideas to life.</div>
+				</h1>
+				<ul
+					class="flex justify-center gap-4 md:justify-start"
+					aria-label="Social and contact links"
+				>
+					<li>
+						<a
+							href="https://github.com/curatedcode"
+							class="hover:text-custom-blue-100 transition-colors"
+							title="Github"
+							rel="nofollow noreferrer"
+							target="_blank"
+						>
+							<GithubIcon />
+						</a>
+					</li>
+					<li>
+						<a
+							href="https://www.x.com/@iamnotzack"
+							class="hover:text-custom-blue-100 transition-colors"
+							title="X (Twitter)"
+							rel="nofollow noreferrer"
+							target="_blank"
+						>
+							<XTwitterIcon />
+						</a>
+					</li>
+					<li>
+						<a
+							href="mailto:me@zackaryf.com"
+							class="hover:text-custom-blue-100 transition-colors"
+							title="Email me@zackaryf.com"
+							rel="nofollow noreferrer"
+							target="_blank"
+						>
+							<Mail />
+						</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<div class="grid gap-20 md:col-span-3 md:pt-16">
+			<section class="grid gap-12 md:gap-16">
+				<h1
+					id="blog"
+					class="-mb-3 w-fit scroll-m-24 text-xl font-semibold md:-mb-6"
+				>
+					BLOG
+				</h1>
+				<div class="flex flex-col gap-6">
+					{
+						postsSorted.map(({ slug, title, date, excerpt }) => (
+							<div class="flex flex-col">
+								<div class="box-border">
+									<a
+										href={`/blog/${slug}`}
+										class={buttonVariants({
+											variant: "link",
+											class: "text-base"
+										})}
+									>
+										{title}
+									</a>
+								</div>
+								<span class="mt-2 mb-1 text-sm opacity-80">
+									{new Date(date).toLocaleDateString("en-US", {
+										month: "long",
+										day: "numeric",
+										year: "numeric"
+									})}
+								</span>
+								<p class="pt-1 text-pretty">{excerpt}</p>
+							</div>
+						))
+					}
+				</div>
+			</section>
+			<section class="grid gap-12 md:gap-16">
+				<h1
+					id="case-studies"
+					class="-mb-3 w-fit scroll-m-24 text-xl font-semibold md:-mb-6"
+				>
+					CASE STUDIES
+				</h1>
+				<ProjectCard
+					title="Practical Car"
+					date="May 2025"
+					image="/images/practical-car-hero.webp"
+					links={[
+						{ title: "Live", href: "https://practical-car.zackaryf.com/" },
+						{ title: "Writeup", href: "/case-studies/practical-car" }
+					]}
+					lazyLoad={false}
+				>
+					I immediately recognized an opportunity to transform a functional but
+					outdated car rental platform into a seamless, user-centered
+					experience. The original site suffered from an shrunken interface,
+					inconsistent visual language, and a avalibaility process that created
+					unnecessary friction for users.</ProjectCard
+				>
+				<ProjectCard
+					title="Maloney Legal"
+					date="February 2025"
+					image="/images/maloney-legal-hero.webp"
+					links={[
+						{ title: "Live", href: "https://maloney-legal.zackaryf.com/" },
+						{ title: "Writeup", href: "/case-studies/maloney-legal" }
+					]}
+				>
+					I recognized a dedicated legal practice with extensive expertise in
+					law across Florida. However, the digital presence wasn't effectively
+					communicating the firm's professionalism or facilitating seamless
+					client engagement. The original website lacked visual hierarchy—common
+					issues for specialized service providers whose expertise lies outside
+					digital design.</ProjectCard
+				>
+				<ProjectCard
+					title="Escape Reality"
+					date="February 2025"
+					image="/images/escape-reality-hero.webp"
+					links={[
+						{ title: "Live", href: "https://escape-reality.zackaryf.com/" },
+						{ title: "Writeup", href: "/case-studies/escape-reality" }
+					]}
+				>
+					As a premier escape room experience provider, their physical locations
+					offered immersive, captivating adventures—yet their digital presence
+					failed to match this level of engagement. The original website
+					suffered from an outdated visual design that created more user
+					friction than necessary.</ProjectCard
+				>
+				<ProjectCard
+					title="Cookie Cottage"
+					date="January 2025"
+					image="/images/cookie-cottage-hero.webp"
+					links={[
+						{ title: "Live", href: "https://cookie-cottage.zackaryf.com/" },
+						{ title: "Writeup", href: "/case-studies/cookie-cottage" }
+					]}
+				>
+					A local bakery shop needed a modern, user-friendly website that would
+					enhance their online presence and attract new customers. The original
+					website was outdated and lacked the necessary features to provide an
+					engaging experience for both adults and children.</ProjectCard
+				>
+			</section>
+			<section class="grid gap-12 md:gap-16">
+				<h1
+					id="projects"
+					class="-mb-3 w-fit scroll-m-24 text-xl font-semibold md:-mb-6"
+				>
+					RECENT PROJECTS
+				</h1>
+				<ProjectCard
+					title="Florida Elect"
+					date="March 2025"
+					tags={[
+						{ name: "NextJS", href: "https://nextjs.org/" },
+						{ name: "PostgresSQL", href: "https://www.postgresql.org/" },
+						{ name: "Tailwind", href: "https://tailwindcss.com/" }
+					]}
+					image="/images/florida-elect-hero.webp"
+					links={[
+						{ title: "Website", href: "https://florida-elect.vercel.app/" },
+						{
+							title: "Github",
+							href: "https://github.com/curatedcode/florida-elect"
+						}
+					]}
+				>
+					I created Florida Elect as a way to make Florida’s in-state election
+					results more accessible and insightful. With it, you can explore
+					election data by district, dive into candidate profiles and their
+					contributors, and uncover demographic trends that shape each race.
+					It’s a tool designed to turn raw election data into clear, meaningful
+					insights.</ProjectCard
+				>
+			</section>
+		</div>
+	</div>
+</Layout>

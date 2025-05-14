@@ -1,22 +1,54 @@
 {
-	"name": "portfolio-v2",
+	"name": "portfolio",
 	"type": "module",
-	"version": "0.0.1",
+	"version": "2.0.0",
+	"license": "MIT",
+	"author": "Zackary Fotheringham me@zackaryf.com",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/curatedcode/portfolio.git"
+	},
+	"homepage": "https://zackaryf.com",
+	"bugs": {
+		"url": "https://github.com/curatedcode/portfolio/issues"
+	},
+	"keywords": [
+		"astro",
+		"portfolio",
+		"tailwind",
+		"alpinejs",
+		"typescript"
+	],
 	"scripts": {
 		"dev": "astro dev --port=3000 --host",
 		"build": "pnpm lint && astro build",
 		"preview": "astro preview",
 		"astro": "astro",
 		"test": "playwright test",
-		"lint": "biome check --write ."
+		"lint": "pnpm exec prettier . --write"
 	},
 	"dependencies": {
+		"@alpinejs/collapse": "^3.14.9",
+		"@astrojs/alpinejs": "^0.4.8",
+		"@lucide/astro": "^0.510.0",
 		"@tailwindcss/vite": "^4.1.5",
+		"alpinejs": "^3.14.9",
 		"astro": "^5.7.10",
-		"astro-icon": "^0.8.1",
+		"astro-expressive-code": "^0.41.2",
+		"class-variance-authority": "^0.7.1",
+		"clsx": "^2.1.1",
+		"rehype-mermaid": "^3.0.0",
+		"tailwind-merge": "^3.2.0",
 		"tailwindcss": "^4.1.5"
 	},
 	"devDependencies": {
-		"prettier-plugin-astro": "^0.10.0"
+		"@tailwindcss/typography": "^0.5.16",
+		"@types/alpinejs": "^3.13.11",
+		"@types/alpinejs__collapse": "^3.13.4",
+		"@types/node": "^22.15.3",
+		"prettier": "3.5.3",
+		"prettier-plugin-astro": "0.14.1",
+		"prettier-plugin-tailwindcss": "^0.6.11",
+		"typescript": "^5.8.3"
 	}
 }
