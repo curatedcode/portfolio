@@ -1,33 +1,31 @@
 ---
-import ExternalLink from "../components/ExternalLink.astro";
+import { cn } from "../utils/cn";
+import { buttonVariants } from "./buttonVariants";
+import { navLinks } from "./Navbar.astro";
 
 export interface Props {
-  className?: string;
+	className?: string;
 }
 
 const { className } = Astro.props;
 ---
 
-<footer class={`mt-8 ${className}`}>
-  <p>
-    Made with &#x2764. Coded in <ExternalLink
-      href="https://code.visualstudio.com/"
-      className="font-semibold hover:text-site-blue-lightest transition-colors"
-      title="VSCode site"
-    >
-      VSCode,
-    </ExternalLink> built with <ExternalLink
-      href="https://astro.build/"
-      className="font-semibold hover:text-site-blue-lightest transition-colors"
-      title="Astro site"
-    >
-      Astro,
-    </ExternalLink> and deployed on <ExternalLink
-      href="https://aws.amazon.com/"
-      className="font-semibold hover:text-site-blue-lightest transition-colors"
-      title="AWS site"
-    >
-      AWS.
-    </ExternalLink> Thanks for visiting!
-  </p>
+<footer
+	class={cn([
+		"mt-12 py-6 px-4 grid justify-center gap-6 max-w-4xl mx-auto md:grid-cols-2",
+		className
+	])}
+>
+	<div class="flex gap-6">
+		{
+			navLinks.map((link) => (
+				<a href={link.path} class={buttonVariants({ variant: "link" })}>
+					{link.name}
+				</a>
+			))
+		}
+	</div>
+	<div class="text-center text-sm md:mt-0 md:ml-auto">
+		&copy; {new Date().getFullYear()} Zack F
+	</div>
 </footer>

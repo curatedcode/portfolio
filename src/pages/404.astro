@@ -1,49 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Portfolio site for Zackary Fotheringham. Software Engineer"
-    />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image" href="/favicon.ico" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link
-      rel="apple-touch-icon-precomposed"
-      sizes="180x180"
-      href="/apple-touch-icon-precomposed.png"
-    />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#0a192f" />
-    <title>404 | Zackary Fotheringham</title>
-  </head>
-  <body
-    class="bg-site-blue text-site-blue-lighter font-inter px-5 py-10 grid place-items-center"
-  >
-    <main class="max-w-xl grid md:grid-cols-2 gap-6 md:gap-0 mt-24">
-      <img
-        alt=""
-        src="error-gif.webp"
-        class="w-48 md:w-full max-w-md rounded-sm"
-      />
-      <div class="grid gap-1 justify-items-center my-auto auto-rows-min">
-        <span
-          class="text-2xl text-site-blue-lightest font-semibold place-self-center"
-          >404</span
-        >
-        <p>Can't find that page!</p>
-        <p>
-          Please return <a
-            href="/"
-            class="font-semibold hover:border-site-blue-lighter border-transparent border-b-2 transition-colors"
-            >home</a
-          >
-        </p>
-      </div>
-    </main>
-  </body>
-</html>
+---
+import { buttonVariants } from "../components/buttonVariants";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="404 - Zackary Fotheringham">
+	<div class="pt-24">
+		<img
+			alt="Man saying 'oh' in surprise"
+			src="/images/error-gif.webp"
+			class="mx-auto w-48 max-w-md rounded-sm md:w-full"
+		/>
+		<div class="my-auto grid auto-rows-min justify-items-center gap-1">
+			<span
+				class="text-custom-blue-100 place-self-center text-2xl font-semibold"
+				>404</span
+			>
+			<p>Can't find that page!</p>
+			<p>
+				Please return <a href="/" class={buttonVariants({ variant: "link" })}
+					>home</a
+				>
+			</p>
+		</div>
+	</div>
+</Layout>
