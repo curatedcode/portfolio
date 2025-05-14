@@ -1,0 +1,6 @@
+pnpm-lock.yaml
+/dist
+/.astro
+/.git
+/.vscode
+/node_modules
