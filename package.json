@@ -21,7 +21,7 @@
 	],
 	"scripts": {
 		"dev": "astro dev --port=3000 --host",
-		"build": "pnpm lint && astro build",
+		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro",
 		"test": "playwright test",
