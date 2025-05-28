@@ -36,32 +36,33 @@ const { title, class: className } = Astro.props;
 		<title>{title}</title>
 
 		<!-- Twitter Card -->
-		<meta name="twitter:card" content="summary" />
-		<meta name="twitter:site" content="@zackaryf" />
-		<meta name="twitter:url" content="https://zackaryf.com" />
-		<meta name="twitter:title" content="Zackary Fotheringham" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta property="twitter:domain" content="zackaryf.com" />
+		<meta property="twitter:url" content="https://zackaryf.com" />
+		<meta
+			name="twitter:title"
+			content="Zackary Fotheringham - Portfolio Site"
+		/>
 		<meta
 			name="twitter:description"
-			content="Awesome site made by Zackary Fotheringham."
+			content="Software Engineer. Improving the web."
 		/>
-		<meta
-			name="twitter:image"
-			content="https://zackaryf.com/icons/social-card.png"
-		/>
+		<meta name="twitter:image" content="https://zackaryf.com/social-card.png" />
 
 		<!-- Open Graph -->
+		<meta property="og:url" content="https://zackaryf.com" />
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content="Zackary Fotheringham" />
 		<meta
 			property="og:description"
-			content="Awesome site made by Zackary Fotheringham."
+			content="Software Engineer. Improving the web."
 		/>
-		<meta property="og:site_name" content="Zackary Fotheringham" />
-		<meta property="og:url" content="https://zackaryf.com" />
 		<meta
 			property="og:image"
 			content="https://zackaryf.com/icons/social-card.png"
 		/>
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
 
 		<!-- Apple touch icon -->
 		<link
