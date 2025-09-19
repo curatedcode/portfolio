@@ -1,15 +1,15 @@
-import { glob } from "astro/loaders";
 import { defineCollection, z } from "astro:content";
+import { glob } from "astro/loaders";
 
-export const blogPostSchema = z.object({
-	id: z.number(),
-	title: z.string().min(1),
-	excerpt: z.string().min(1),
-	date: z.string().min(1),
-	author: z.string().min(1),
-	tags: z.array(z.string()),
-	slug: z.string().min(1)
-});
+// export const blogPostSchema = z.object({
+// 	id: z.number(),
+// 	title: z.string().min(1),
+// 	excerpt: z.string().min(1),
+// 	date: z.string().min(1),
+// 	author: z.string().min(1),
+// 	tags: z.array(z.string()),
+// 	slug: z.string().min(1)
+// });
 
 /**
  * @typedef {Object} BlogPost
@@ -21,10 +21,10 @@ export const blogPostSchema = z.object({
  * @property {string[]} tags - Array of tags related to the post
  * @property {string} content - Full content of the post
  */
-const blog = defineCollection({
-	loader: glob({ pattern: "**/*.md", base: "./src/data/blog" }),
-	schema: blogPostSchema
-});
+// const blog = defineCollection({
+// 	loader: glob({ pattern: "**/*.md", base: "./src/data/blog" }),
+// 	schema: blogPostSchema
+// });
 
 export const caseStudySchema = z.object({
 	id: z.number(),
@@ -32,7 +32,7 @@ export const caseStudySchema = z.object({
 	excerpt: z.string().min(1),
 	date: z.string().min(1),
 	author: z.string().min(1),
-	slug: z.string().min(1)
+	slug: z.string().min(1),
 });
 
 /**
@@ -46,7 +46,7 @@ export const caseStudySchema = z.object({
  */
 const caseStudies = defineCollection({
 	loader: glob({ pattern: "**/*.md", base: "./src/data/case-studies" }),
-	schema: caseStudySchema
+	schema: caseStudySchema,
 });
 
-export const collections = { blog, caseStudies };
+export const collections = { caseStudies };
