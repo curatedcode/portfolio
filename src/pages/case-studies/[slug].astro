@@ -28,7 +28,7 @@ const { Content } = await render(entry);
 <Layout title={`${entry.data.title} - Zackary Fotheringham`}>
 	<div class="mb-8 pt-4 md:pt-16">
 		<h1 class="text-xl font-bold md:text-2xl">{entry.data.title}</h1>
-		<span class="mt-2 max-w-sm text-sm opacity-80 md:ml-1">
+		<span class="mt-2 max-w-sm text-sm opacity-80">
 			{
 				new Date(entry.data.date ?? "").toLocaleDateString("en-US", {
 					month: "long",
