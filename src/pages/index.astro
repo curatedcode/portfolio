@@ -71,41 +71,6 @@ const postsSorted = postsData.sort(
 		<div class="grid gap-20 md:col-span-3 md:pt-16">
 			<section class="grid gap-12 md:gap-16">
 				<h1
-					id="blog"
-					class="-mb-3 w-fit scroll-m-24 text-xl font-semibold md:-mb-6"
-				>
-					BLOG
-				</h1>
-				<div class="flex flex-col gap-6">
-					{
-						postsSorted.map(({ slug, title, date, excerpt }) => (
-							<div class="flex flex-col">
-								<div class="box-border">
-									<a
-										href={`/blog/${slug}`}
-										class={buttonVariants({
-											variant: "link",
-											class: "text-base"
-										})}
-									>
-										{title}
-									</a>
-								</div>
-								<span class="mt-2 mb-1 text-sm opacity-80">
-									{new Date(date).toLocaleDateString("en-US", {
-										month: "long",
-										day: "numeric",
-										year: "numeric"
-									})}
-								</span>
-								<p class="pt-1 text-pretty">{excerpt}</p>
-							</div>
-						))
-					}
-				</div>
-			</section>
-			<section class="grid gap-12 md:gap-16">
-				<h1
 					id="case-studies"
 					class="-mb-3 w-fit scroll-m-24 text-xl font-semibold md:-mb-6"
 				>
