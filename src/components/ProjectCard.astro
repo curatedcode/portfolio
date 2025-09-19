@@ -9,6 +9,7 @@ interface Props {
 	links: {
 		title: string;
 		href: string;
+		isInternal?: boolean;
 	}[];
 	lazyLoad?: boolean;
 }
@@ -60,8 +61,8 @@ const { title, date, image, tags, links, lazyLoad = true } = Astro.props;
 						variant: "link",
 						class: "justify-start gap-2 pb-1"
 					})}
-					rel="nofollow noreferrer"
-					target="_blank"
+					rel={link.isInternal ? "" : "nofollow noreferrer"}
+					target={link.isInternal ? "_self" : "_blank"}
 				>
 					{link.title}
 				</a>
