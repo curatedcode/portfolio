@@ -1,16 +1,8 @@
 ---
 import { Mail } from "@lucide/astro";
-import { getCollection } from "astro:content";
-import { buttonVariants } from "../components/buttonVariants";
 import { GithubIcon, XTwitterIcon } from "../components/Icons";
 import ProjectCard from "../components/ProjectCard.astro";
 import Layout from "../layouts/Layout.astro";
-
-const blogPosts = await getCollection("blog");
-const postsData = blogPosts.map((post) => post.data);
-const postsSorted = postsData.sort(
-	(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-);
 ---
 
 <Layout title="Zackary Fotheringham">
@@ -69,6 +61,65 @@ const postsSorted = postsData.sort(
 			</div>
 		</section>
 		<div class="grid gap-20 md:col-span-3 md:pt-16">
+			<section class="grid gap-12 md:gap-16">
+				<h1
+					id="projects"
+					class="-mb-3 w-fit scroll-m-24 text-xl font-semibold md:-mb-6"
+				>
+					RECENT PROJECTS
+				</h1>
+				<ProjectCard
+					title="BlendCN"
+					date="September 2025"
+					tags={[
+						{ name: "NextJS", href: "https://nextjs.org/" },
+						{ name: "Shadcn/ui", href: "https://ui.shadcn.com/" },
+						{
+							name: "Radix Colors",
+							href: "https://www.radix-ui.com/colors/custom/"
+						}
+					]}
+					image="/images/blendcn.webp"
+					links={[
+						{ title: "Website", href: "https://blendcn.zackaryf.com/" },
+						{
+							title: "Github",
+							href: "https://github.com/curatedcode/blendcn"
+						}
+					]}
+				>
+					BlendCN started as a simple tool I built for myself as just a way to
+					map design tokens to color steps. But as I kept adding features like
+					live component previews and CSS export, it grew into something more
+					comprehensive. I’ve always liked shadcn for its structure, but it felt
+					a bit neutral. Radix, on the other hand, had this thoughtful approach
+					to color across components. So I figured: why not combine the two?</ProjectCard
+				>
+				<ProjectCard
+					title="Florida Elect"
+					date="March 2025"
+					tags={[
+						{ name: "NextJS", href: "https://nextjs.org/" },
+						{ name: "PostgresSQL", href: "https://www.postgresql.org/" },
+						{ name: "Tailwind", href: "https://tailwindcss.com/" }
+					]}
+					image="/images/florida-elect-hero.webp"
+					links={[
+						{ title: "Website", href: "https://florida-elect.vercel.app/" },
+						{
+							title: "Github",
+							href: "https://github.com/curatedcode/florida-elect"
+						}
+					]}
+				>
+					I created Florida Elect as a way to make Florida’s in-state election
+					results more accessible and insightful. With it, you can explore
+					election data by district, dive into candidate profiles and their
+					contributors, and uncover demographic trends that shape each race.
+					It’s a tool designed to turn raw election data into clear, meaningful
+					insights.</ProjectCard
+				>
+			</section>
 			<section class="grid gap-12 md:gap-16">
 				<h1
 					id="case-studies"
@@ -136,65 +187,6 @@ const postsSorted = postsData.sort(
 					enhance their online presence and attract new customers. The original
 					website was outdated and lacked the necessary features to provide an
 					engaging experience for both adults and children.</ProjectCard
-				>
-			</section>
-			<section class="grid gap-12 md:gap-16">
-				<h1
-					id="projects"
-					class="-mb-3 w-fit scroll-m-24 text-xl font-semibold md:-mb-6"
-				>
-					RECENT PROJECTS
-				</h1>
-				<ProjectCard
-					title="BlendCN"
-					date="September 2025"
-					tags={[
-						{ name: "NextJS", href: "https://nextjs.org/" },
-						{ name: "Shadcn/ui", href: "https://ui.shadcn.com/" },
-						{
-							name: "Radix Colors",
-							href: "https://www.radix-ui.com/colors/custom/"
-						}
-					]}
-					image="/images/blendcn.webp"
-					links={[
-						{ title: "Website", href: "https://blendcn.zackaryf.com/" },
-						{
-							title: "Github",
-							href: "https://github.com/curatedcode/blendcn"
-						}
-					]}
-				>
-					BlendCN started as a simple tool I built for myself as just a way to
-					map design tokens to color steps. But as I kept adding features like
-					live component previews and CSS export, it grew into something more
-					comprehensive. I’ve always liked shadcn for its structure, but it felt
-					a bit neutral. Radix, on the other hand, had this thoughtful approach
-					to color across components. So I figured: why not combine the two?</ProjectCard
-				>
-				<ProjectCard
-					title="Florida Elect"
-					date="March 2025"
-					tags={[
-						{ name: "NextJS", href: "https://nextjs.org/" },
-						{ name: "PostgresSQL", href: "https://www.postgresql.org/" },
-						{ name: "Tailwind", href: "https://tailwindcss.com/" }
-					]}
-					image="/images/florida-elect-hero.webp"
-					links={[
-						{ title: "Website", href: "https://florida-elect.vercel.app/" },
-						{
-							title: "Github",
-							href: "https://github.com/curatedcode/florida-elect"
-						}
-					]}
-				>
-					I created Florida Elect as a way to make Florida’s in-state election
-					results more accessible and insightful. With it, you can explore
-					election data by district, dive into candidate profiles and their
-					contributors, and uncover demographic trends that shape each race.
-					It’s a tool designed to turn raw election data into clear, meaningful
-					insights.</ProjectCard
 				>
 			</section>
 		</div>
