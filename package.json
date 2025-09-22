@@ -3,7 +3,10 @@
 	"type": "module",
 	"version": "3.0.1",
 	"license": "MIT",
-	"author": "Zackary Fotheringham me@zackaryf.com",
+	"author": {
+		"name": "Zackary Fotheringham",
+		"url": "https://x.com/iamnotzack"
+	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/curatedcode/portfolio.git"
