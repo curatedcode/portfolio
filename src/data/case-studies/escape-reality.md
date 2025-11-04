@@ -7,6 +7,10 @@ author: "Zack F."
 slug: "escape-reality"
 ---
 
+## Updated Design (2025-11-04)
+
+Redesigned this sites landing page to match the more fun playful and sci-fi vibe I was originally trying to achieve. Added animations, unique colors, and fun fonts that helped express the "personality" of the business.
+
 ## Overview
 
 When I first encountered the Escape Reality website, I was immediately struck by its potential. As a premier escape room experience provider, their physical locations offered immersive, captivating adventures—yet their digital presence failed to match this level of engagement. The original website suffered from an outdated visual design, convoluted booking process, and poor mobile responsiveness, creating a disconnect between their exceptional in-person experiences and their online representation.
