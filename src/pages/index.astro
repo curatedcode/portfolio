@@ -22,7 +22,13 @@ import Layout from "../layouts/Layout.astro";
 		type="font/woff2"
 		crossorigin="anonymous"
 	/>
-	<link slot="head" rel="preload" as="image" href="/images/blendcn.webp" />
+	<link
+		slot="head"
+		rel="preload"
+		as="image"
+		href="/images/blendcn.webp"
+		fetchpriority="high"
+	/>
 	<div class="relative grid gap-y-16 md:grid-cols-4 md:gap-x-16">
 		<section
 			class="-mb-3 grid h-fit snap-none pt-10 transition-all duration-300 md:sticky md:top-8 md:content-between md:pt-15"
@@ -97,6 +103,7 @@ import Layout from "../layouts/Layout.astro";
 						}
 					]}
 					image="/images/blendcn.webp"
+					lazyLoad={false}
 					links={[
 						{ title: "Website", href: "https://blendcn.zackaryf.com/" },
 						{

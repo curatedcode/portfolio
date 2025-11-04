@@ -47,6 +47,7 @@ const { title, date, image, tags, links, lazyLoad = true } = Astro.props;
 		width="730"
 		height="355"
 		loading={lazyLoad ? "lazy" : "eager"}
+		fetchpriority={lazyLoad ? undefined : "high"}
 		class="w-full rounded-md shadow-md"
 	/>
 	<div class="px-1">
