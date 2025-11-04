@@ -32,7 +32,7 @@ export const caseStudySchema = z.object({
 	excerpt: z.string().min(1),
 	date: z.string().min(1),
 	author: z.string().min(1),
-	slug: z.string().min(1),
+	slug: z.string().min(1)
 });
 
 /**
@@ -46,7 +46,7 @@ export const caseStudySchema = z.object({
  */
 const caseStudies = defineCollection({
 	loader: glob({ pattern: "**/*.md", base: "./src/data/case-studies" }),
-	schema: caseStudySchema,
+	schema: caseStudySchema
 });
 
 export const collections = { caseStudies };
