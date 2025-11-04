@@ -23,9 +23,9 @@
 		"typescript"
 	],
 	"scripts": {
-		"dev": "astro dev --port=3000 --host",
+		"dev": "astro dev --host",
 		"build": "astro build",
-		"preview": "astro preview",
+		"preview": "astro preview --host",
 		"astro": "astro",
 		"lint": "pnpm exec prettier . --write"
 	},
