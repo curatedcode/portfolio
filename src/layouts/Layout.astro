@@ -121,13 +121,15 @@ const { title, class: className } = Astro.props;
 		>
 			<div class="mx-auto max-w-240" x-data="layoutRoot">
 				<Navbar />
-				<main
-					class={cn(["pb-16 pt-20 px-3 md:py-16", className])}
-					transition:animate="fade"
-				>
-					<slot />
-				</main>
-				<Footer />
+				<div class="flex min-h-screen flex-col justify-between">
+					<main
+						class={cn(["pb-16 pt-20 px-3 md:py-16", className])}
+						transition:animate="fade"
+					>
+						<slot />
+					</main>
+					<Footer />
+				</div>
 			</div>
 		</div>
 	</body>

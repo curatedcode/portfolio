@@ -12,14 +12,17 @@ const { className } = Astro.props;
 
 <footer
 	class={cn([
-		"mt-12 py-6 px-4 grid justify-center gap-6 max-w-4xl mx-auto md:grid-cols-2",
+		"mt-12 py-6 px-4 grid justify-center gap-6 max-w-4xl w-full mx-auto md:grid-cols-2",
 		className
 	])}
 >
 	<div class="flex gap-6">
 		{
 			navLinks.map((link) => (
-				<a href={link.path} class={buttonVariants({ variant: "link" })}>
+				<a
+					href={link.path}
+					class="hover:text-custom-blue-100 text-sm transition-colors"
+				>
 					{link.name}
 				</a>
 			))
