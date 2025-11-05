@@ -1,26 +1,23 @@
 ---
-import { buttonVariants } from "../components/buttonVariants";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="404 - Zackary Fotheringham">
-	<div class="pt-24">
+<Layout title="404 - Zackary Fotheringham" class="my-auto">
+	<div class="flex flex-col items-center justify-center gap-12">
 		<img
 			alt="Man saying 'oh' in surprise"
 			src="/images/error-gif.webp"
-			class="mx-auto w-48 max-w-md rounded-sm md:w-full"
+			class="w-80 rounded-sm"
 		/>
-		<div class="my-auto grid auto-rows-min justify-items-center gap-1">
-			<span
-				class="text-custom-blue-100 place-self-center text-2xl font-semibold"
-				>404</span
+		<div class="text-center">
+			<h1 class="mb-4 text-5xl font-bold">404</h1>
+			<p class="mb-4 text-xl">Uh-Oh! We can't find that page</p>
+			<a
+				href="/"
+				class="hover:text-custom-blue-200 underline transition-colors"
 			>
-			<p>Can't find that page!</p>
-			<p>
-				Please return <a href="/" class={buttonVariants({ variant: "link" })}
-					>home</a
-				>
-			</p>
+				Return Home
+			</a>
 		</div>
 	</div>
 </Layout>
