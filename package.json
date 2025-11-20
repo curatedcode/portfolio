@@ -2,6 +2,7 @@
 	"name": "portfolio",
 	"type": "module",
 	"version": "3.1.2",
+	"private": "true",
 	"license": "MIT",
 	"author": {
 		"name": "Zackary Fotheringham",
@@ -15,13 +16,6 @@
 	"bugs": {
 		"url": "https://github.com/curatedcode/portfolio/issues"
 	},
-	"keywords": [
-		"astro",
-		"portfolio",
-		"tailwind",
-		"alpinejs",
-		"typescript"
-	],
 	"scripts": {
 		"dev": "astro dev --host",
 		"build": "astro build",
