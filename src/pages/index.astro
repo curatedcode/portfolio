@@ -1,15 +1,23 @@
 ---
 import { Mail } from "@lucide/astro";
 import { GithubIcon, XTwitterIcon } from "../components/Icons";
+import { getCollection } from "astro:content";
 import ProjectCard from "../components/ProjectCard.astro";
 import Layout from "../layouts/Layout.astro";
+import { buttonVariants } from "../components/buttonVariants";
+
+const blogPosts = await getCollection("blog");
+const postsData = blogPosts.map((post) => post.data);
+const postsSorted = postsData.sort(
+	(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+);
 ---
 
 <Layout title="Zackary Fotheringham">
 	<link
 		slot="head"
 		rel="preload"
-		href="/fonts/inter-v18-latin-regular.woff2"
+		href="/assets/fonts/inter-v18-latin-regular.woff2"
 		as="font"
 		type="font/woff2"
 		crossorigin="anonymous"
@@ -17,7 +25,7 @@ import Layout from "../layouts/Layout.astro";
 	<link
 		slot="head"
 		rel="preload"
-		href="/fonts/inter-v18-latin-600.woff2"
+		href="/assets/fonts/inter-v18-latin-600.woff2"
 		as="font"
 		type="font/woff2"
 		crossorigin="anonymous"
@@ -26,7 +34,7 @@ import Layout from "../layouts/Layout.astro";
 		slot="head"
 		rel="preload"
 		as="image"
-		href="/images/blendcn.webp"
+		href="/assets/images/escape-reality.webp"
 		fetchpriority="high"
 	/>
 	<div class="relative grid gap-y-16 md:grid-cols-4 md:gap-x-16">
@@ -84,66 +92,41 @@ import Layout from "../layouts/Layout.astro";
 			</div>
 		</section>
 		<div class="grid gap-20 md:col-span-3 md:pt-16">
-			<section class="grid gap-12 md:gap-16">
+			<!-- <section class="grid gap-12 md:gap-16">
 				<h1
-					id="projects"
+					id="blog"
 					class="-mb-3 w-fit scroll-m-24 text-xl font-semibold md:-mb-6"
 				>
-					RECENT PROJECTS
+					BLOG
 				</h1>
-				<ProjectCard
-					title="BlendCN"
-					date="September 2025"
-					tags={[
-						{ name: "NextJS", href: "https://nextjs.org/" },
-						{ name: "Shadcn/ui", href: "https://ui.shadcn.com/" },
-						{
-							name: "Radix Colors",
-							href: "https://www.radix-ui.com/colors/custom/"
-						}
-					]}
-					image="/images/blendcn.webp"
-					lazyLoad={false}
-					links={[
-						{ title: "Website", href: "https://blendcn.zackaryf.com/" },
-						{
-							title: "Github",
-							href: "https://github.com/curatedcode/blendcn"
-						}
-					]}
-				>
-					BlendCN started as a simple tool I built for myself as just a way to
-					map design tokens to color steps. But as I kept adding features like
-					live component previews and CSS export, it grew into something more
-					comprehensive. I’ve always liked shadcn for its structure, but it felt
-					a bit neutral. Radix, on the other hand, had this thoughtful approach
-					to color across components. So I figured: why not combine the two?</ProjectCard
-				>
-				<ProjectCard
-					title="Florida Elect"
-					date="March 2025"
-					tags={[
-						{ name: "NextJS", href: "https://nextjs.org/" },
-						{ name: "PostgresSQL", href: "https://www.postgresql.org/" },
-						{ name: "Tailwind", href: "https://tailwindcss.com/" }
-					]}
-					image="/images/florida-elect.webp"
-					links={[
-						{ title: "Website", href: "https://florida-elect.zackaryf.com/" },
-						{
-							title: "Github",
-							href: "https://github.com/curatedcode/florida-elect"
-						}
-					]}
-				>
-					I created Florida Elect as a way to make Florida’s in-state election
-					results more accessible and insightful. With it, you can explore
-					election data by district, dive into candidate profiles and their
-					contributors, and uncover demographic trends that shape each race.
-					It’s a tool designed to turn raw election data into clear, meaningful
-					insights.</ProjectCard
-				>
-			</section>
+				<div class="flex flex-col gap-6">
+					{
+						postsSorted.map(({ slug, title, date, excerpt }) => (
+							<div class="flex flex-col">
+								<div class="box-border">
+									<a
+										href={`/blog/${slug}`}
+										class={buttonVariants({
+											variant: "link",
+											class: "text-base"
+										})}
+									>
+										{title}
+									</a>
+								</div>
+								<span class="mt-2 mb-1 text-sm opacity-80">
+									{new Date(date).toLocaleDateString("en-US", {
+										month: "long",
+										day: "numeric",
+										year: "numeric"
+									})}
+								</span>
+								<p class="pt-1 text-pretty">{excerpt}</p>
+							</div>
+						))
+					}
+				</div>
+			</section> -->
 			<section class="grid gap-12 md:gap-16">
 				<h1
 					id="case-studies"
@@ -163,9 +146,10 @@ import Layout from "../layouts/Layout.astro";
 							isInternal: true
 						}
 					]}
+					lazyLoad={false}
 				>
 					As a premier escape room experience provider, their physical location
-					offered immersive, captivating adventures—yet their digital presence
+					offered immersive, captivating adventures, yet their digital presence
 					failed to match this level of engagement. The original website
 					suffered from an outdated visual design that created more user
 					friction than necessary.</ProjectCard
@@ -227,6 +211,65 @@ import Layout from "../layouts/Layout.astro";
 					enhance their online presence and attract new customers. The original
 					website was outdated and lacked the necessary features to provide an
 					engaging experience for both adults and children.</ProjectCard
+				>
+			</section>
+			<section class="grid gap-12 md:gap-16">
+				<h1
+					id="projects"
+					class="-mb-3 w-fit scroll-m-24 text-xl font-semibold md:-mb-6"
+				>
+					RECENT PROJECTS
+				</h1>
+				<ProjectCard
+					title="BlendCN"
+					date="September 2025"
+					tags={[
+						{ name: "NextJS", href: "https://nextjs.org/" },
+						{ name: "Shadcn/ui", href: "https://ui.shadcn.com/" },
+						{
+							name: "Radix Colors",
+							href: "https://www.radix-ui.com/colors/custom/"
+						}
+					]}
+					image="/images/blendcn.webp"
+					links={[
+						{ title: "Website", href: "https://blendcn.zackaryf.com/" },
+						{
+							title: "Github",
+							href: "https://github.com/curatedcode/blendcn"
+						}
+					]}
+				>
+					BlendCN started as a simple tool I built for myself as just a way to
+					map design tokens to color steps. But as I kept adding features like
+					live component previews and CSS export, it grew into something more
+					comprehensive. I’ve always liked shadcn for its structure, but it felt
+					a bit neutral. Radix, on the other hand, had this thoughtful approach
+					to color across components. So I figured: why not combine the two?</ProjectCard
+				>
+				<ProjectCard
+					title="Florida Elect"
+					date="March 2025"
+					tags={[
+						{ name: "NextJS", href: "https://nextjs.org/" },
+						{ name: "PostgresSQL", href: "https://www.postgresql.org/" },
+						{ name: "Tailwind", href: "https://tailwindcss.com/" }
+					]}
+					image="/images/florida-elect.webp"
+					links={[
+						{ title: "Website", href: "https://florida-elect.zackaryf.com/" },
+						{
+							title: "Github",
+							href: "https://github.com/curatedcode/florida-elect"
+						}
+					]}
+				>
+					I created Florida Elect as a way to make Florida’s in-state election
+					results more accessible and insightful. With it, you can explore
+					election data by district, dive into candidate profiles and their
+					contributors, and uncover demographic trends that shape each race.
+					It’s a tool designed to turn raw election data into clear, meaningful
+					insights.</ProjectCard
 				>
 			</section>
 		</div>
