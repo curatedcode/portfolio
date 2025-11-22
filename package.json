@@ -17,7 +17,7 @@
 		"url": "https://github.com/curatedcode/portfolio/issues"
 	},
 	"scripts": {
-		"dev": "astro dev --host",
+		"dev": "astro dev --host --port=3000",
 		"build": "astro build",
 		"preview": "astro preview --host",
 		"astro": "astro",
@@ -40,6 +40,7 @@
 		"@types/alpinejs": "^3.13.11",
 		"@types/alpinejs__collapse": "^3.13.4",
 		"@types/node": "^24.10.1",
+		"@vite-pwa/astro": "^1.1.1",
 		"prettier": "3.6.2",
 		"prettier-plugin-astro": "0.14.1",
 		"prettier-plugin-tailwindcss": "^0.6.14",
