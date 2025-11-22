@@ -23,86 +23,157 @@ const { title, class: className } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="generator" content={Astro.generator} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=10.0" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, viewport-fit=cover"
+		/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta title="Zackary Fotheringham" />
 		<meta
 			name="description"
-			content="Awesome site made by Zackary Fotheringham."
+			content="Portfolio of Zackary Fotheringham, a software engineer specializing in intuitive UI/UX, and fast, accessible websites."
 		/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content="Zackary Fotheringham" />
+		<meta name="referrer" content="strict-origin-when-cross-origin" />
+		<meta name="robots" content="index, follow" />
 		<meta name="theme-color" content="#0a192f" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-title" content="Zackary Fotheringham" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
-		<link rel="manifest" href="/manifest.json" />
+		<meta property="og:title" content="Zackary Fotheringham" />
+		<meta
+			property="og:description"
+			content="Portfolio of Zackary Fotheringham, a software engineer specializing in intuitive UI/UX, and fast, accessible websites."
+		/>
+		<meta property="og:url" content="https://zackaryf.com" />
+		<meta property="og:site_name" content="Zackary Fotheringham" />
+		<meta property="og:locale" content="en_US" />
+		<meta
+			property="og:image"
+			content="https://zackaryf.com/assets/meta/og-card.png"
+		/>
+		<meta
+			property="og:image:secure_url"
+			content="https://zackaryf.com/assets/meta/og-card.png"
+		/>
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content="Zackary Fotheringham" />
+		<meta property="og:updated_time" content={new Date().toISOString()} />
+		<meta property="og:type" content="website" />
+		<meta property="og:ttl" content="600" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@IAmNotZack" />
+		<meta name="twitter:site:id" content="722408900213874688" />
+		<meta name="twitter:creator" content="@IAmNotZack" />
+		<meta name="twitter:title" content="Zackary Fotheringham" />
+		<meta
+			name="twitter:description"
+			content="Portfolio of Zackary Fotheringham, a software engineer specializing in intuitive UI/UX, and fast, accessible websites."
+		/>
+		<meta name="twitter:url" content="https://zackaryf.com" />
+		<meta
+			name="twitter:image"
+			content="https://zackaryf.com/assets/meta/twitter-summary.png"
+		/>
+		<meta name="twitter:image:alt" content="Zackary Fotheringham" />
+		<meta name="msapplication-starturl" content="/?utm_source=homescreen" />
+		<meta name="msapplication-navbutton-color" content="#0a192f" />
+		<meta name="application-name" content="Zackary Fotheringham" />
+		<meta name="color-scheme" content="light dark" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="msapplication-TileImage" content="/assets/icons/144x144.png" />
+		<meta name="msapplication-TileColor" content="#0a192f" />
+		<meta
+			name="apple-touch-startup-image"
+			content="/assets/icons/512x512.png"
+		/>
+		<meta name="application-short-name" content="Zackary Fotheringham" />
+		<link rel="author" href="https://zackaryf.com" />
+		<link rel="manifest" href="/manifest.webmanifest" />
+		<link rel="canonical" href="https://zackaryf.com/" />
+		<link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/assets/icons/16x16.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/assets/icons/32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="48x48"
+			href="/assets/icons/48x48.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="64x64"
+			href="/assets/icons/64x64.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="192x192"
+			href="/assets/icons/192x192.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="256x256"
+			href="/assets/icons/256x256.png"
+		/>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/60x60.png" />
+		<link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/76x76.png" />
+		<link
+			rel="apple-touch-icon"
+			sizes="114x114"
+			href="/assets/icons/114x114.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="120x120"
+			href="/assets/icons/120x120.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="144x144"
+			href="/assets/icons/144x144.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="152x152"
+			href="/assets/icons/152x152.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/assets/icons/180x180.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="512x512"
+			href="/assets/icons/512x512.png"
+		/>
+		<link rel="mask-icon" href="/assets/icons/maskable.svg" color="#0a192f" />
 		<script
 			is:inline
 			async
 			src="https://unpkg.com/pwacompat"
 			cross-origin="anonymous"></script>
-
 		<title>{title}</title>
-
-		<!-- Twitter Card -->
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta property="twitter:domain" content="zackaryf.com" />
-		<meta property="twitter:url" content="https://zackaryf.com" />
-		<meta
-			name="twitter:title"
-			content="Zackary Fotheringham - Portfolio Site"
-		/>
-		<meta
-			name="twitter:description"
-			content="Software Engineer. Improving the web."
-		/>
-		<meta name="twitter:image" content="https://zackaryf.com/social-card.png" />
-
-		<!-- Open Graph -->
-		<meta property="og:url" content="https://zackaryf.com" />
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="Zackary Fotheringham" />
-		<meta
-			property="og:description"
-			content="Software Engineer. Improving the web."
-		/>
-		<meta
-			property="og:image"
-			content="https://zackaryf.com/icons/social-card.png"
-		/>
-		<meta property="og:image:width" content="1200" />
-		<meta property="og:image:height" content="630" />
-
-		<!-- Apple touch icon -->
-		<link
-			rel="apple-touch-icon"
-			sizes="120x120"
-			href="/icons/apple-touch-icon_120.png"
-		/>
-		<link
-			rel="apple-touch-icon"
-			sizes="152x152"
-			href="/icons/apple-touch-icon_152.png"
-		/>
-		<link
-			rel="apple-touch-icon"
-			sizes="167x167"
-			href="/icons/apple-touch-icon_167.png"
-		/>
-		<link
-			rel="apple-touch-icon"
-			sizes="180x180"
-			href="/icons/apple-touch-icon_180.png"
-		/>
 		<slot name="head" />
 		<ClientRouter />
 	</head>
 	<body>
-		<script>
-			if ("serviceWorker" in navigator) {
-				window.addEventListener("load", function () {
-					navigator.serviceWorker.register("/serviceWorker.js").then(() => {
-						console.log("SW registration successful");
-					});
-				});
-			}
-		</script>
 		<script>
 			import Alpine from "alpinejs";
 
