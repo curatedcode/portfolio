@@ -1,10 +1,10 @@
 ---
-import { Mail } from "@lucide/astro";
-import { GithubIcon, XTwitterIcon } from "../components/Icons";
 import { getCollection } from "astro:content";
+import { Mail } from "@lucide/astro";
+import { buttonVariants } from "../components/buttonVariants";
+import { GithubIcon, XTwitterIcon } from "../components/Icons";
 import ProjectCard from "../components/ProjectCard.astro";
 import Layout from "../layouts/Layout.astro";
-import { buttonVariants } from "../components/buttonVariants";
 
 const blogPosts = await getCollection("blog");
 const postsData = blogPosts.map((post) => post.data);
@@ -137,7 +137,7 @@ const postsSorted = postsData.sort(
 				<ProjectCard
 					title="Escape Reality"
 					date="November 2025"
-					image="/images/escape-reality-hero.webp"
+					image="/assets/images/escape-reality-hero.webp"
 					links={[
 						{ title: "Live", href: "https://escape-reality.zackaryf.com/" },
 						{
@@ -157,7 +157,7 @@ const postsSorted = postsData.sort(
 				<ProjectCard
 					title="Practical Car"
 					date="May 2025"
-					image="/images/practical-car-hero.webp"
+					image="/assets/images/practical-car-hero.webp"
 					links={[
 						{ title: "Live", href: "https://practical-car.zackaryf.com/" },
 						{
@@ -177,7 +177,7 @@ const postsSorted = postsData.sort(
 				<ProjectCard
 					title="Maloney Legal"
 					date="February 2025"
-					image="/images/maloney-legal-hero.webp"
+					image="/assets/images/maloney-legal-hero.webp"
 					links={[
 						{ title: "Live", href: "https://maloney-legal.zackaryf.com/" },
 						{
@@ -197,7 +197,7 @@ const postsSorted = postsData.sort(
 				<ProjectCard
 					title="Cookie Cottage"
 					date="January 2025"
-					image="/images/cookie-cottage-hero.webp"
+					image="/assets/images/cookie-cottage-hero.webp"
 					links={[
 						{ title: "Live", href: "https://cookie-cottage.zackaryf.com/" },
 						{
@@ -231,7 +231,7 @@ const postsSorted = postsData.sort(
 							href: "https://www.radix-ui.com/colors/custom/"
 						}
 					]}
-					image="/images/blendcn.webp"
+					image="/assets/images/blendcn.webp"
 					links={[
 						{ title: "Website", href: "https://blendcn.zackaryf.com/" },
 						{
@@ -255,7 +255,7 @@ const postsSorted = postsData.sort(
 						{ name: "PostgresSQL", href: "https://www.postgresql.org/" },
 						{ name: "Tailwind", href: "https://tailwindcss.com/" }
 					]}
-					image="/images/florida-elect.webp"
+					image="/assets/images/florida-elect.webp"
 					links={[
 						{ title: "Website", href: "https://florida-elect.zackaryf.com/" },
 						{
